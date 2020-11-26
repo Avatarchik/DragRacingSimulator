@@ -18,13 +18,13 @@ public class CarBrakes : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Kp1==null||Kp2==null||Kt1==null||Kt2==null){
-			Kp1 = gameObject.GetComponent<CarEngine> ().K1p;
-			Kp2 = gameObject.GetComponent<CarEngine> ().K2p;
-			Kt1 = gameObject.GetComponent<CarEngine> ().K1;
-			Kt2 = gameObject.GetComponent<CarEngine> ().K2;
+			Kp1 = gameObject.GetComponent<CarTransmission> ().K1p;
+			Kp2 = gameObject.GetComponent<CarTransmission> ().K2p;
+			Kt1 = gameObject.GetComponent<CarTransmission> ().K1;
+			Kt2 = gameObject.GetComponent<CarTransmission> ().K2;
 		}
 		Kt1.brakeTorque = Kt2.brakeTorque = Input.GetAxis ("Brakes") * 0.25f * SilaHamowania4Kola;
 		Kp1.brakeTorque = Kp2.brakeTorque = Input.GetAxis ("Brakes") * 0.75f * SilaHamowania4Kola;
-		Kt1.brakeTorque = Kt2.brakeTorque = Input.GetAxis ("HandBrakes") * SilaHamowaniaReczny;
+		Kt1.brakeTorque = Kt2.brakeTorque = Input.GetAxis ("HandBrake") * SilaHamowaniaReczny;
 	}
 }

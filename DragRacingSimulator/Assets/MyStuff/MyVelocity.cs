@@ -38,20 +38,22 @@ public class MyVelocity : MonoBehaviour {
 	public Texture2D t5;
 	public Texture2D t6;
 	void OnGUI(){
-		float Velo;
-		Velo = Mathf.Round(V * 1);
-		GUI.Label (new Rect(Screen.width-400+50, Screen.height-400+100, 400, 400),t2);
-		GUI.Label (new Rect(Screen.width-400+50, Screen.height-400+100, 400, 400),t3);
-		pivotPoint = new Vector2(Screen.width-200+50, Screen.height-200+100);
-		GUI.Label (new Rect(Screen.width-200, Screen.height-70, 100, 40),""+Velo,Tachometer);
-		GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
-		GUI.Label (new Rect(Screen.width-400+50, Screen.height-400+100, 400, 400),t4);
-		GUIUtility.RotateAroundPivot(rotAngle*-1, pivotPoint);
-		GUIUtility.RotateAroundPivot(rotAngle2, pivotPoint);
-		GUI.Label (new Rect(Screen.width-400+50, Screen.height-400+100, 400, 400),t5);
-		GUIUtility.RotateAroundPivot(rotAngle2*-1, pivotPoint);
-		GUIUtility.RotateAroundPivot(rotAngle3, pivotPoint);
-		GUI.Label (new Rect(Screen.width-400+50, Screen.height-400+100, 400, 400),t6);
-
+		if (!GameObject.Find("Main Camera").GetComponent<MainMenu>().PauseMenu && GameObject.Find("Main Camera").GetComponent<MainMenu>().LoggedIn)
+		{
+			float Velo;
+			Velo = Mathf.Round(V * 1);
+			GUI.Label(new Rect(Screen.width - 400 + 50, Screen.height - 400 + 100, 400, 400), t2);
+			GUI.Label(new Rect(Screen.width - 400 + 50, Screen.height - 400 + 100, 400, 400), t3);
+			pivotPoint = new Vector2(Screen.width - 200 + 50, Screen.height - 200 + 100);
+			GUI.Label(new Rect(Screen.width - 200, Screen.height - 70, 100, 40), "" + Velo, Tachometer);
+			GUIUtility.RotateAroundPivot(rotAngle, pivotPoint);
+			GUI.Label(new Rect(Screen.width - 400 + 50, Screen.height - 400 + 100, 400, 400), t4);
+			GUIUtility.RotateAroundPivot(rotAngle * -1, pivotPoint);
+			GUIUtility.RotateAroundPivot(rotAngle2, pivotPoint);
+			GUI.Label(new Rect(Screen.width - 400 + 50, Screen.height - 400 + 100, 400, 400), t5);
+			GUIUtility.RotateAroundPivot(rotAngle2 * -1, pivotPoint);
+			GUIUtility.RotateAroundPivot(rotAngle3, pivotPoint);
+			GUI.Label(new Rect(Screen.width - 400 + 50, Screen.height - 400 + 100, 400, 400), t6);
+		}
 	}
 }

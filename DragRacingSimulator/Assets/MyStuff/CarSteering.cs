@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CarSteering : MonoBehaviour {
+public class CarSteering : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +12,9 @@ public class CarSteering : MonoBehaviour {
 	// Update is called once per frame
 	public WheelCollider S1;
 	public WheelCollider S2;
-	public int MaxSkret;
+	public float MaxSkret;
+	public static bool ControlACar = true;
 	void Update () {
-		S1.steerAngle = S2.steerAngle = Input.GetAxis ("Horizontal") * MaxSkret;
+		S1.steerAngle = S2.steerAngle = (Input.GetAxis ("Steering") * MaxSkret);
 	}
 }
